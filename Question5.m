@@ -5,7 +5,7 @@ x =[4 62 120 180 242 297 365]';
 % bank balance
 y =[2720 1950 1000 1150 1140 750 250]';
 
-scatter(x, y, 20, MarkerFaceColor='red', MarkerEdgeColor='blue')
+scatter(x, y, 10, MarkerFaceColor='red', MarkerEdgeColor='blue')
 grid on
 
 % Create a NxK matrix
@@ -29,6 +29,11 @@ avgSqErr=sum((y-X*theta).^2)./length(y);
 
 hold on
 plot(x_fit, y_fit, '.b', LineWidth=3)
-title(sprintf('%1.0fth order fit, \\lambda=0, avgSqErr=%.6f;',degree, avgSqErr))
+xlabel("Day of Year", FontSize=12)
+ylabel("Bank Account Balance", FontSize=12)
+title(sprintf('%1.0fth order fit, \\lambda=0, avgSqErr=%.6f',degree, avgSqErr), FontSize=14, FontWeight="normal")
+
+print -dpng HW3Q5.png
+
 
 
